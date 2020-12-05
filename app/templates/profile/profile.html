@@ -8,7 +8,7 @@
         <div class="card testimonial-card" style="width:50%;height:30%">
             <div class="card-img" >
                 {% if user.profile_pic_path %}
-                <img src="{{url_for('static',filename=user.profile_pic_path)}}" style="height:300px;border-radius: 1%" class="card-img" alt="woman">
+                <img src="{{url_for('static',filename=user.profile_pic_path)}}" style="height:250px;border-radius: 1%" class="card-img" alt="woman">
                 {% else %}
                 <p>no Profile Picture</p>
                 {% endif %}
@@ -23,12 +23,12 @@
             {% if user == current_user %}
             <div class="profpic">
                 <div id="updates">
-                    <a style="color:white" href="{{url_for('main.updateprofile',name=user.username)}}">Edit Bio</a>
-                    <button  class="btn btn-sm btn-info" id="profbutton">Update Picture</button>
+                    <a style="color:white" href="{{url_for('main.updateprofile',name=user.username)}}">Edit Bio</a> <br>
+                    <button  class="btn btn-sm btn-info" id="profbutton">Update Picture</button><br><br>
                 </div>
                 <div id="imgform">
                     <form action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype="multipart/form-data">
-                        <input type="file" name="photo" class="form-control" required>
+                        <input type="file" name="photo" class="form-control" required> <br>
                         <input type="submit" class="btn btn-sm btn-info" id="submit">
                     </form>
                 </div>
@@ -45,7 +45,7 @@
 <div class="jumbotron">
 
         {% if current_user %}
-    <h3 class="text-center"> you have {{user.postes.count()}} POst</h3>
+    <h3 class="text-center"> you have {{user.postes.count()}} Post</h3>
     {% for i in posts %}
     <div class="postes">
         <h5>Title: {{i.title}}</h5>
@@ -54,6 +54,7 @@
         <h6>{{i.post}}</h6>
         <a  href="{{url_for('main.comment',post_id=i.id)}}" class="btn btn-sm btn-info">{{i.comment.count()}} Comments</a>
         <a  href="{{url_for('main.update_blog',post_id=i.id)}}" class="btn btn-sm btn-primary">update</a>
+        <br><br><br><br>
 
 
 

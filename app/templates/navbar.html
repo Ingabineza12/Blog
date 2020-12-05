@@ -26,28 +26,29 @@
                {% if current_user.is_authenticated %}
 
                 <li class="nav-item">
-                        <a href="{{url_for('main.profile',name=current_user.username)}}"  style="color: black">Profile</a></li>
-                        <br>
+                        <a class="nav-link" href="{{url_for('main.profile',name=current_user.username)}}"  style="color: black">Profile</a>
+                </li>
 
-                <div >
-                     <a  href="{{url_for('auth.logout')}}" style="color: black"> Log Out</a>
 
-                </div>
-            </li>
+
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('auth.logout')}}" style="color: black"> LogOut</a>
+                   </li>
+
+
+
 
                 {% else %}
                 <li class="nav-item">
 
 
-                 <a href="{{url_for('auth.login')}}" style="margin-right:30px " class="nav-link"> <strong>Log In</strong></a>
+                 <a href="{{url_for('auth.login')}}" style="margin-right:30px " class="nav-link"> <strong>LogIn</strong></a>
 
                 </li>
                     <li class="nav-item">
-                    <a href="{{url_for('auth.signup')}}" style="margin-right:30px " class="nav-link"><strong>Sign Up</strong></a>
+                    <a href="{{url_for('auth.signup')}}" style="margin-right:30px " class="nav-link"><strong>SignUp</strong></a>
                 </li>
                 {% endif %}
                 </ul>
         </div>
 </nav>
-
-         

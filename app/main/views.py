@@ -4,7 +4,7 @@ from flask_login import login_user,login_required,current_user
 # from .forms import RegistrationForm,LoginForm
 from ..models import User,Post,Comment,Quotes
 from .. import db,photos
-from .forms import UpdateBlogForm,PostForm,CommentForm
+from .forms import UpdateProfile,PostForm,CommentForm
 import requests
 
 from ..requests import getQuotes
@@ -122,9 +122,9 @@ def updateprofile(name):
 
     if user == None:
         abort(404)
-    form=UpdateProfile()
+    form = UpdateProfile()
     if form.validate_on_submit():
-        user.bio=form.bio.data
+        user.bio = form.bio.data
         # user.save_u()
         db.session.add(user)
         db.session.commit()
