@@ -1,0 +1,35 @@
+
+
+{% macro display(piches) %}
+<div class="container-fluid">
+    <div class="row">
+        {% if piches %}
+            {% for category in piches %}
+				<div class="col-md-4" >
+                        <div class="jumbotron" style="width:80%; height: 70%;">
+                    <!-- <div class="thumbnail" id="carded">-->
+                   <h5 > {{category.title}}</h5>
+						<div>
+                            <p>{{category.post}}</p>
+                            <!-- <p class="text-center">Category: {{category.category}}</p> -->
+							<footer class="blockquote-footer text-center"> Posted by: {{category.user.username}}</footer>
+							<div>
+
+                                <a href="{{url_for('main.comment',post_id=category.id)}}" class="btn btn-info btn-sm">{{category.comment.count()}} Comment</a>
+                                <a href="{{url_for('.delete',post_id=category.id)}}" class="btn btn-info btn-sm">Delete</a>
+                            </div>
+                        </div>
+                           </div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-title"> Category has 0 posts</p>
+                        </div>
+                    </div>
+				{% endif %}
+                    </div>
+</div>
+{% endmacro %}

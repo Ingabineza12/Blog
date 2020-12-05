@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='stylesheets/styles.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="landingspot">
+        <div class="textmiddle">
+            <h2 style="text-align: center ;font-family:'Berkshire Swash'">MY PERSONAL BLOG</h2>
+            <p><i>{{quotes.quote}}</i></p>
+            <p>___{{quotes.author}}</p>
+        </div>
+    </div>
+    <hr>
+
+
+
+
+<div class="container-fluid" id="particles-js">
+    <!-- <h2 class="text-center" id="posts"  style="color: black"><strong>POST</strong> </h2> -->
+    <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+        <li class="nav-item">
+            <a id="cats" class="nav-link"  data-toggle="tab" href="#all" style="color: black"><strong>POST</strong></a>
+        </li>
+
+
+    </ul>
+    <div class="tab-content">
+        <div class="container tab-pane active" id="all"> <br>
+        {{macro.display(postes)}} </div>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

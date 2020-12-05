@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
+
+    <title>Blog</title>
+    {% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Farro|Livvic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body class="body" style="background-image:url('https://res.cloudinary.com/drrezzrvd/image/upload/v1566745000/sunset-with-the-hills_xxzqsw.jpg'); background-repeat: no-repeat; background-size: cover" >
+
+
+        {% block navbar %}
+        {% include 'navbar.html' %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</body>
+</html>
