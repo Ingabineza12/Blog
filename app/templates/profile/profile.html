@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% block content %}
+
+<div class="container-fluid" style="margin-top:1%">
+    <div class="row" >
+        <div class="col-md-4 pict">
+        <div class="card testimonial-card" style="width:50%;height:30%">
+            <div class="card-img" >
+                {% if user.profile_pic_path %}
+                <img src="{{url_for('static',filename=user.profile_pic_path)}}" style="height:300px;border-radius: 1%" class="card-img" alt="woman">
+                {% else %}
+                <p>no Profile Picture</p>
+                {% endif %}
+
+            </div>
+        <div class="card-body">
+            <h5 class="text-center">{{user.username | capitalize}}</h5>
+            <hr>
+            {% if user.bio %}
+            <p><i class="fas fa-quote-left"></i>{{user.bio}}</p>
+            {% endif %}
+            {% if user == current_user %}
+            <div class="profpic">
+                <div id="updates">
+                    <a style="color:white" href="{{url_for('main.updateprofile',name=user.username)}}">Edit Bio</a>
+                    <button  class="btn btn-sm btn-info" id="profbutton">Update Picture</button>
+                </div>
+                <div id="imgform">
+                    <form action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype="multipart/form-data">
+                        <input type="file" name="photo" class="form-control" required>
+                        <input type="submit" class="btn btn-sm btn-info" id="submit">
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+
+
+
+
+<div class="col-md-4 ">
+<div class="jumbotron">
+
+        {% if current_user %}
+    <h3 class="text-center"> you have {{user.postes.count()}} POst</h3>
+    {% for i in posts %}
+    <div class="postes">
+        <h5>Title: {{i.title}}</h5>
+        <hr>
+
+        <h6>{{i.post}}</h6>
+        <a  href="{{url_for('main.comment',post_id=i.id)}}" class="btn btn-sm btn-info">{{i.comment.count()}} Comments</a>
+        <a  href="{{url_for('main.update_blog',post_id=i.id)}}" class="btn btn-sm btn-primary">update</a>
+
+
+
+
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h3>you have 0 Post</h3>
+    {% endif %}
+    </div>
+
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
