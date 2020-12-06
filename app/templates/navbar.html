@@ -1,7 +1,7 @@
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark" >
 
-        <a class="navbar-brand" href="{{url_for('main.index')}}" style="color: black"><strong>BLOG</strong> </a>
+        <a class="navbar-brand" href="{{url_for('main.index')}}" style="color: wheat; font-size:20px;"><strong>BLOG</strong> </a>
     <div  class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
 
@@ -11,12 +11,12 @@
                 </li> -->
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('main.new_post')}}"  style="color: black">New Post</a>
+                            <a class="nav-link" href="{{url_for('main.new_post')}}"  style="color: wheat; font-size:20px;">Add Blog</a>
                     </li>
 
                         <li class="nav-item">
 
-                                <a class="nav-link" href="{{url_for('main.index')}}" style="color: black">All Post</a>
+                                <a class="nav-link" href="{{url_for('main.index')}}" style="color: wheat; font-size:20px;">All Blogs</a>
                         </li>
                         <!-- <li class="nav-item">
                                 <a href="{{url_for('main.profile',name=current_user.username)}}"  style="color: black">Profile</a></li> -->
@@ -26,13 +26,13 @@
                {% if current_user.is_authenticated %}
 
                 <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('main.profile',name=current_user.username)}}"  style="color: black">Profile</a>
+                        <a class="nav-link" href="{{url_for('main.profile',name=current_user.username)}}"  style="color: wheat; font-size:20px;">Profile</a>
                 </li>
 
 
 
                   <li class="nav-item">
-                     <a class="nav-link" href="{{url_for('auth.logout')}}" style="color: black"> LogOut</a>
+                     <a class="nav-link" href="{{url_for('auth.logout')}}" style="color: wheat; font-size:20px;"> LogOut</a>
                    </li>
 
 
@@ -42,11 +42,11 @@
                 <li class="nav-item">
 
 
-                 <a href="{{url_for('auth.login')}}" style="margin-right:30px " class="nav-link"> <strong>LogIn</strong></a>
+                 <a href="{{url_for('auth.login')}}" style="margin-right:30px color: wheat; font-size:20px;" class="nav-link"> <strong>LogIn</strong></a>
 
                 </li>
                     <li class="nav-item">
-                    <a href="{{url_for('auth.signup')}}" style="margin-right:30px " class="nav-link"><strong>SignUp</strong></a>
+                    <a href="{{url_for('auth.signup')}}" style="margin-right:30px color: wheat; font-size:20px;" class="nav-link"><strong>SignUp</strong></a>
                 </li>
                 {% endif %}
                 </ul>

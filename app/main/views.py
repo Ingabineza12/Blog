@@ -4,7 +4,7 @@ from flask_login import login_user,login_required,current_user
 # from .forms import RegistrationForm,LoginForm
 from ..models import User,Post,Comment,Quotes
 from .. import db,photos
-from .forms import UpdateProfile,PostForm,CommentForm
+from .forms import UpdateBlogForm,PostForm,CommentForm
 import requests
 
 from ..requests import getQuotes
